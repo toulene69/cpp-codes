@@ -363,3 +363,133 @@ ListNode* sortList(ListNode* A) {
     
     return merge_sort(A, NULL);
 }
+
+
+
+ListNode *reverseList(ListNode* A, int B) {
+    ListNode *res, *pre, *it, *temp, *cur;
+    res = pre = it = temp = cur = NULL;
+    it = A;
+    while (it) {
+        ListNode *p = NULL;
+        cur = it;
+        int i = B;
+        while (i>0) {
+            temp = cur->next;
+            cur->next = p;
+            p = cur;
+            cur = temp;
+            i--;
+        }
+        if (res) {
+            pre->next = p;
+        }
+        else {
+            res = p;
+        }
+        pre = it;
+        it = cur;
+    }
+    return res;
+}
+
+ListNode *swapPairs(ListNode* A) {
+    
+    ListNode *res, *cur, *it, *temp, *pre;
+    res = cur = it = temp = pre= NULL;
+    it = A;
+    while (it && it->next) {
+        ListNode *n1 = it;
+        ListNode *n2 = it->next;
+        n1->next = NULL;
+        it = n2->next;
+        n2->next = n1;
+        if (!res) {
+            res = n2;
+        }
+        if (pre) {
+            pre->next = n2;
+        }
+        pre = n1;
+    }
+    if (it && pre) {
+        pre->next = it;
+    }
+    if (res == NULL) {
+        res = A;
+    }
+    return res;
+}
+
+
+ListNode* addTwoNumbers(ListNode* A, ListNode* B) {
+    ListNode *res, *pre;
+    res = A;
+    pre = NULL;
+    int i = 0;
+    while (A && B) {
+        int c = (A->val + B->val + i)/10 ;
+        A->val = (A->val + B->val + i)%10;
+        i = c;
+        pre = A;
+        A = A->next;
+        B = B->next;
+    }
+    if (B) {
+        if (pre) {
+            pre->next = B;
+            A = B;
+        }
+    }
+    while (A && i>0) {
+        int c = (A->val + i)/10;
+        A->val = (A->val + i)%10;
+        i = c;
+        pre = A;
+        A = A->next;
+    }
+    if (i>0) {
+        pre->next = new ListNode(i);
+    }
+    return res;
+}
+
+
+ListNode* detectCycle(ListNode* A) {
+    
+    ListNode *slow,*fast;
+    if (A==nullptr) {
+        return nullptr;
+    }
+    slow = A;
+    fast = A->next;
+    while (fast && fast->next && slow != fast) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    if (fast == NULL || fast->next == NULL) {
+        return NULL;
+    }
+    slow = A;
+    fast = fast->next;
+    while (slow != fast) {
+        slow = slow->next;
+        fast = fast->next;
+    }
+    return slow;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <vector>
 #include <iterator>
+#include <set>
 
 using namespace std;
 
@@ -40,5 +41,13 @@ ListNode* partition(ListNode* A, int B);
 ListNode* insertionSortList(ListNode* A);
 
 ListNode* sortList(ListNode* A);
+
+ListNode *reverseList(ListNode* A, int B); // reverse list k
+
+ListNode *swapPairs(ListNode* A);
+
+ListNode* addTwoNumbers(ListNode* A, ListNode* B);
+
+ListNode* detectCycle(ListNode* A);
 
 #endif /* Solutions_hpp */
