@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E5D8B4F61F42202000E348CC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5D8B4F51F42202000E348CC /* main.cpp */; };
+		E5D8B4FE1F42214A00E348CC /* StackQueueSolutions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5D8B4FC1F42214A00E348CC /* StackQueueSolutions.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		E5D8B4F21F42202000E348CC /* Stack&Queue */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Stack&Queue"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D8B4F51F42202000E348CC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E5D8B4FC1F42214A00E348CC /* StackQueueSolutions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StackQueueSolutions.cpp; sourceTree = "<group>"; };
+		E5D8B4FD1F42214A00E348CC /* StackQueueSolutions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StackQueueSolutions.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				E5D8B4F51F42202000E348CC /* main.cpp */,
+				E5D8B4FC1F42214A00E348CC /* StackQueueSolutions.cpp */,
+				E5D8B4FD1F42214A00E348CC /* StackQueueSolutions.hpp */,
 			);
 			path = "Stack&Queue";
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5D8B4F61F42202000E348CC /* main.cpp in Sources */,
+				E5D8B4FE1F42214A00E348CC /* StackQueueSolutions.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
