@@ -17,6 +17,10 @@
 
 using namespace std;
 
+vector<int> slidingMaximum(const vector<int> &A, int B);
+
+int largestRectangleArea(vector<int> &height);
+
 int evalRPN(vector<string> &A);
 
 vector<int> prevSmaller(vector<int> &A);

@@ -12,11 +12,11 @@
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    vector<string> v =  {"5", "1", "2", "+", "4", "*", "+", "3", "-"};
-//    vector<int> r = prevSmaller(v);
-//    for (int i=0; i<r.size(); i++) {
-//        cout<<r[i]<<endl;
-//    }
-    std::cout << evalRPN(v) <<endl;
+    vector<int> v =  {10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+    vector<int> r = slidingMaximum(v,5);
+    for (int i=0; i<r.size(); i++) {
+        cout<<r[i]<<endl;
+    }
+//       std::cout << slidingMaximum(v,3) <<endl;
     return 0;
 }

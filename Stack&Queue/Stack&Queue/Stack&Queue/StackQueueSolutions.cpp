@@ -8,6 +8,54 @@
 
 #include "StackQueueSolutions.hpp"
 
+
+vector<int> slidingMaximum(const vector<int> &A, int w) {
+    deque<int> Q;
+    vector<int> B;
+    if (w>=A.size()) {
+        B.push_back( *(max_element(A.begin(), A.end())) );
+        return B;
+    }
+    for (int i = 0; i < w; i++) {
+        while (!Q.empty() && A[i] >= A[Q.back()])
+            Q.pop_back();
+        Q.push_back(i);
+    }
+    for (int i = w; i < A.size(); i++) {
+        B.push_back(A[Q.front()]);
+        while (!Q.empty() && A[i] >= A[Q.back()])
+            Q.pop_back();
+        while (!Q.empty() && Q.front() <= i-w)
+            Q.pop_front();
+        Q.push_back(i);
+    }
+    B.push_back(A[Q.front()]);
+    return B;
+}
+
+
+
+
+int largestRectangleArea(vector<int> &height) {
+    int res = 0;
+    stack<int> index;
+    height.push_back(0);
+    for (int i = 0; i<height.size(); ++i) {
+        while (!index.empty() && height[index.top()] >= height[i]) {
+            int h = height[index.top()];
+            index.pop();
+            
+            int x = index.empty()? -1 : index.top();
+            
+            if (h*( i - x -1 ) > res) {
+                res = h*( i - x -1 );
+            }
+        }
+        index.push(i);
+    }
+    return res;
+}
+
 int trap(const vector<int> &arr) {
     int result = 0;
     int n = arr.size();
