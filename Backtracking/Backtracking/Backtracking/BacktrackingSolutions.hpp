@@ -17,6 +17,7 @@
 #include <unordered_set>
 #include <set>
 #include <unordered_map>
+#include <string>
 
 using namespace std;
 
@@ -39,5 +40,9 @@ vector<vector<int> > combinationSum(vector<int> &A, int B);
 vector<vector<int> > combinationSum2(vector<int> &A, int B);
 
 vector<vector<int> > subsetsWithDup(vector<int> &A);
+
+vector<vector<int> > permute(vector<int> &A);
+
+vector<string> letterCombinations(string A);
 
 #endif /* BacktrackingSolutions_hpp */

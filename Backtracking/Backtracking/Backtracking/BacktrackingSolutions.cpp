@@ -8,6 +8,67 @@
 
 #include "BacktrackingSolutions.hpp"
 
+void backtrack_letterCombinations(string &a, int i, string temp ,vector<string> &res, map<char,string> &m) {
+    if (i == a.length()) {
+        if (temp.length() == a.length()) {
+            res.push_back(temp);
+        }
+        return;
+    }
+    map<char, string>:: iterator it = m.find(a[i]);
+    string s = it->second;
+    for (int k = 0; k <s.length(); ++k) {
+        temp.push_back(s[k]);
+        backtrack_letterCombinations(a,i+1,temp,res,m);
+        temp.pop_back();
+    }
+
+}
+
+vector<string> letterCombinations(string A) {
+    map<char,string> m;
+    m.insert(make_pair('1', "1"));
+    m.insert(make_pair('2', "abc"));
+    m.insert(make_pair('3', "def"));
+    m.insert(make_pair('4', "ghi"));
+    m.insert(make_pair('5', "jkl"));
+    m.insert(make_pair('6', "mno"));
+    m.insert(make_pair('7', "pqrs"));
+    m.insert(make_pair('8', "tuv"));
+    m.insert(make_pair('9', "wxyz"));
+    m.insert(make_pair('0', "0"));
+    sort(A.begin(), A.end());
+    vector<string> res;
+    backtrack_letterCombinations(A,0,"",res,m);
+    return res;
+}
+
+void backtrack_permute(int i,  vector<int> a, vector<vector<int>>&res) {
+    if (i == a.size()) {
+        res.push_back(a);
+        return;
+    }
+    
+    for (int j = i; j<a.size(); ++j) {
+        int temp = a[j];
+        a[j] = a[i];
+        a[i] = temp;
+        backtrack_permute(i+1, a, res);
+        temp = a[j];
+        a[j] = a[i];
+        a[i] = temp;
+    }
+}
+
+
+vector<vector<int> > permute(vector<int> &A) {
+    vector<vector<int>> res;
+    vector<int>temp;
+    backtrack_permute(0,A,res);
+    return res;
+}
+
+
 void backTrackSubset(int i, vector<int> &a, vector<int> temp, vector<vector<int>> &res) {
 
     if (i == a.size()) {

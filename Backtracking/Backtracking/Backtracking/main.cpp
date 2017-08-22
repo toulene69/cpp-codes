@@ -22,15 +22,19 @@ int main(int argc, const char * argv[]) {
 //        cout<<h->val<<endl;
 //        h = h->next;
 //    }
-    vector<int> v = {5, 4};//{8, 10, 6, 11, 1, 16, 8};
-    
-    vector<vector<int>> o = subsetsWithDup(v);
-    for (int i=0; i<o.size(); ++i) {
-        for (int j =0 ; j<o[i].size(); j++) {
-            cout<<o[i][j];
-        }
-        cout<<endl;
+    vector<int> v = {1,2,3};//{8, 10, 6, 11, 1, 16, 8};
+    map<char,string> m;
+    vector<string> r = letterCombinations("234");
+    for (int i = 0; i<r.size(); i++) {
+        cout<<r[i]<<endl;
     }
+//    vector<vector<int>> o = permute(v);
+//    for (int i=0; i<o.size(); ++i) {
+//        for (int j =0 ; j<o[i].size(); j++) {
+//            cout<<o[i][j];
+//        }
+//        cout<<endl;
+//    }
     //std::cout << Mod(-1, 1, 20);
     return 0;
 }
