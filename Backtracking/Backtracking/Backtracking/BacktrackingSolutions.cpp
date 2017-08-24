@@ -8,6 +8,183 @@
 
 #include "BacktrackingSolutions.hpp"
 
+bool isPlaceable( vector<vector<char>> &board, int i, int j, int val){
+    // row check
+    vector<char> row = board[i];
+    for(char c : row) {
+        if (c == ('0'+val)) {
+            return false;
+        }
+    }
+    // col check
+    for (int x=0; x<board.size(); ++x) {
+        if (board[x][j] == ('0'+val)) {
+            return false;
+        }
+    }
+    // quadrant check
+    int x,y;
+    int n = sqrt(board.size());
+    x = i - i%n;
+    y = j - j%n;
+    for (int s = 0; s<n; s++) {
+        for (int t = 0; t<n; t++) {
+            if (board[s+x][t+y] == ('0'+val)) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool emptyCell(vector<vector<char>> board, int &row, int &col) {
+    for ( row=0 ; row<board.size(); row++) {
+        for (col=0; col<board.size(); col++) {
+            if (board[row][col] == '.') {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool backtrack_solveSudoku(vector<vector<char>> &board) {
+    int row, col;
+    if (!emptyCell(board, row, col)) {
+        return true;
+    }
+    for (int val =1; val<=board.size(); val++) {
+        if (isPlaceable(board, row, col, val)) {
+            board[row][col] = '0' + val;
+            if(backtrack_solveSudoku(board))
+                return true;
+            board[row][col] = '.';
+        }
+    }
+    return false;
+}
+
+void solveSudoku(vector<vector<char> > &A) {
+    backtrack_solveSudoku(A);
+}
+
+
+bool isQueenSafe(vector<int> cols, int row, int col) {
+    for (int i =0 ; i<cols.size(); ++i) {
+        if (cols[i] == col || abs(row-i) == abs(col - cols[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<string> generate_solution_Nqueens(vector<int>cols) {
+    vector<string> sol;
+    for (int c : cols) {
+        string s(cols.size(),'.');
+        s[c] = 'Q';
+        sol.push_back(s);
+    }
+    return sol;
+}
+
+void backtrack_solveNQueens(int queen, int n, vector<int> columns, vector<vector<string>> &res) {
+    if (queen == n) {
+        vector<string> sol = generate_solution_Nqueens(columns);
+        res.push_back(sol);
+        return;
+    }
+    for (int j=0; j<n; j++) {
+        if (isQueenSafe(columns, queen, j)) {
+            columns.push_back(j);
+            backtrack_solveNQueens(queen+1,n,columns,res);
+            columns.pop_back();
+        }
+    }
+}
+
+vector<vector<string> > solveNQueens(int A) {
+    vector<vector<string> > res;
+    vector<int> cols;
+    backtrack_solveNQueens(0,A,cols,res);
+    return res;
+}
+
+void backtrack_generateParenthesis(int a, int o, int c, string temp, vector<string> &res) {
+    if (o == c and o == a) {
+        res.push_back(temp);
+        return;
+    }
+    if (o > a || c > a) {
+        return;
+    }
+    if (o<a) {
+        temp.push_back('(');
+        backtrack_generateParenthesis(a,o+1,c,temp,res);
+        temp.pop_back();
+    }
+    if (c<o) {
+        temp.push_back(')');
+        backtrack_generateParenthesis(a,o,c+1,temp,res);
+        temp.pop_back();
+    }
+    
+}
+
+vector<string> generateParenthesis(int A) {
+    vector<string> res;
+    string temp;
+    backtrack_generateParenthesis(A,0,0,temp,res);
+//    generateHelper(temp, 0, 0, A, res);
+    //sort(res.begin(), res.end());
+    return res;
+}
+
+
+bool isPlaindrome(string s, int i, int j){
+    if (i<0 || j>= s.size()) {
+        return false;
+    }
+    while (i<j) {
+        if (s[i] == s[j]) {
+            i++;
+            j--;
+        }
+        else{
+            return false;
+        }
+    }
+    return true;
+}
+
+void bactrack_partition(int i, string s, vector<string> temp, vector<vector<string>> &res) {
+    if (i>s.size()) {
+        return;
+    }
+    if (i == s.size()) {
+        res.push_back(temp);
+        return;
+    }
+    int l = 1;
+    int j = i;
+    while ((j+l-1) <s.size()) {
+        if (isPlaindrome(s, j, j+l-1)) {
+            temp.push_back(s.substr(j,l));
+            bactrack_partition(i+l,s,temp,res);
+            temp.pop_back();
+        }
+        l++;
+    }
+}
+
+vector<vector<string> > partition(string A) {
+    vector<vector<string>> res;
+    vector<string> temp;
+    bactrack_partition(0,A,temp,res);
+    sort(res.begin(), res.end());
+    return res;
+}
+
 void backtrack_letterCombinations(string &a, int i, string temp ,vector<string> &res, map<char,string> &m) {
     if (i == a.length()) {
         if (temp.length() == a.length()) {

@@ -18,6 +18,7 @@
 #include <set>
 #include <unordered_map>
 #include <string>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -44,5 +45,13 @@ vector<vector<int> > subsetsWithDup(vector<int> &A);
 vector<vector<int> > permute(vector<int> &A);
 
 vector<string> letterCombinations(string A);
+
+vector<vector<string> > partition(string A);
+
+vector<string> generateParenthesis(int A);
+
+vector<vector<string> > solveNQueens(int A);
+
+void solveSudoku(vector<vector<char> > &A);
 
 #endif /* BacktrackingSolutions_hpp */
