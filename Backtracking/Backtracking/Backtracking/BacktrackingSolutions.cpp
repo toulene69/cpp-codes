@@ -8,6 +8,101 @@
 
 #include "BacktrackingSolutions.hpp"
 
+void backtrack_getKPermutation(int i,int k, int &count,vector<int>p, string &res) {
+    if (res != "") {
+        return;
+    }
+    if (i==p.size()) {
+        count++;
+        if (count == k) {
+            for (int v : p) {
+                res+= to_string(v);
+            }
+        }
+        return;
+    }
+    if (res != "") {
+        return;
+    }
+    sort(p.begin()+i, p.end());
+    for (int j = i; j<p.size(); j++) {
+        
+        int temp = p[j];
+        p[j] = p[i];
+        p[i] = temp;
+        //vector<int> aux(p.begin(),p.end());
+        //sort(aux.begin()+i+1, aux.end());
+        backtrack_getKPermutation(i+1,k,count,p,res);
+        temp = p[j];
+        p[j] = p[i];
+        p[i] = temp;
+    }
+}
+
+
+int factorial(int n) {
+    if (n > 12) {
+        // this overflows in int. So, its definitely greater than k
+        // which is all we care about. So, we return INT_MAX which
+        // is also greater than k.
+        return INT_MAX;
+    }
+    // Can also store these values. But this is just < 12 iteration, so meh!
+    int fact = 1;
+    for (int i = 2; i <= n; i++) fact *= i;
+    return fact;
+}
+
+string backtrack_getPermutationn(int k, vector<int> &candidateSet) {
+    int n = candidateSet.size();
+    if (n == 0) {
+        return "";
+    }
+    if (k > factorial(n)) return ""; // invalid. Should never reach here.
+    
+    int f = factorial(n - 1);
+    int pos = k / f;
+    k %= f;
+    string ch = to_string(candidateSet[pos]);
+    // now remove the character ch from candidateSet.
+    candidateSet.erase(candidateSet.begin() + pos);
+    return ch + backtrack_getPermutationn(k, candidateSet);
+}
+
+string getPermutation(int n, int k) {
+    vector<int> p;
+    for (int i=1; i<=n; i++) {
+        p.push_back(i);
+    }
+    
+    return backtrack_getPermutationn(k-1,p);;
+}
+
+
+void backtrack_grayCode(int val, int n, set<int> &s,vector<int>&res) {
+    set<int>::iterator it = s.find(val);
+    if (it == s.end()) {
+        s.insert(val);
+        res.push_back(val);
+    }
+    else {
+        return;
+    }
+    for (int i=0; i<n; i++) {
+            val = val ^ 1<<i;
+            backtrack_grayCode(val,n,s,res);
+            val = val ^ 1<<i;
+    }
+}
+
+vector<int> grayCode(int A) {
+    set<int> s;
+    vector<int> res;
+    backtrack_grayCode(0,A,s,res);
+    return res;
+}
+
+
 bool isPlaceable( vector<vector<char>> &board, int i, int j, int val){
     // row check
     vector<char> row = board[i];

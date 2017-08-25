@@ -54,4 +54,8 @@ vector<vector<string> > solveNQueens(int A);
 
 void solveSudoku(vector<vector<char> > &A);
 
+vector<int> grayCode(int A);
+
+string getPermutation(int n, int k);
+
 #endif /* BacktrackingSolutions_hpp */

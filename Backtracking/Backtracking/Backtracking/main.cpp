@@ -24,7 +24,7 @@ int main(int argc, const char * argv[]) {
 //    }
 //    vector<int> v = {1,2,3};//{8, 10, 6, 11, 1, 16, 8};
 //    map<char,string> m;
-//    vector<string> r = generateParenthesis(3);
+//    vector<int> r = grayCode(3);
 //    for (int i = 0; i<r.size(); i++) {
 //        cout<<r[i]<<endl;
 //    }
@@ -36,14 +36,7 @@ int main(int argc, const char * argv[]) {
 //        cout<<endl;
 //    }
    // cout<< 5+'0'<<endl;
-    vector<vector<char>> s = {{'5','3','.','.','7','.','.','.','.'}, {'6','.','.','1','9','5','.','.','.'}, {'.','9','8','.','.','.','.','6','.'}, {'8','.','.','.','6','.','.','.','3'}, {'4','.','.','8','.','3','.','.','1'}, {'7','.','.','.','2','.','.','.','6'}, {'.','6','.','.','.','.','2','8','.'}, {'.','.','.','4','1','9','.','.','5'}, {'.','.','.','.','8','.','.','7','9'}};
-    solveSudoku(s);
-    for (int i=0; i<s.size(); ++i) {
-        for (int j =0 ; j<s[i].size(); j++) {
-            cout<<s[i][j]<<" ";
-        }
-        cout<<endl;
-    }
-    //std::cout << Mod(-1, 1, 20);
+    //}
+    cout << getPermutation(5, 6)<<endl;
     return 0;
 }
