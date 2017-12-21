@@ -13,90 +13,22 @@
 int main(int argc, const char * argv[]) {
     // insert code here...
     
-    vector<vector<int>> v1 = {{1,0,1},{1,0,1},{1,0,1}};
-    vector<int> v2 = {1};
-    vector<int> v3 = {1};
-    vector<vector<int>> v = {{1},
-        {0},
-        {1},
-        {0},
-        {1},
-        {0},
-        {1},
-        {1},
-        {1},
-        {0},
-        {0},
-        {1},
-        {0},
-        {0},
-        {1},
-        {0},
-        {0},
-        {0},
-        {0},
-        {1},
-        {1},
-        {1},
-        {0},
-        {1},
-        {0},
-        {1},
-        {0},
-        {0},
-        {1},
-        {0},
-        {0},
-        {1},
-        {0},
-        {0},
-        {0},
-        {0},
-        {1},
-        {1},
-        {1},
-        {0},
-        {0},
-        {0},
-        {0},
-        {0},
-        {1},
-        {0},
-        {0},
-        {1},
-        {1},
-        {1},
-        {0},
-        {1},
-        {1},
-        {0},
-        {0},
-        {0},
-        {0},
-        {1},
-        {0},
-        {1},
-        {0},
-        {1},
-        {1},
-        {1},
-        {0},
-        {1},
-        {1},
-        {1},
-        {1},
-        {1},
-        {1},
-        {1},
-        {0},
-        {1},
-        {1},{1}};
+    
 
     
-    vector<int>A1 = { 14, 24, 18, 46, 55, 53, 82, 18, 101, 20, 78, 35, 68, 9, 16, 93, 101, 85, 81, 28, 78 };
-    string A = "LgR8D8k7t8KIprKDTQ7aoo7ed6mhKQwWlFxXpyjPkh";
-    string B = "Q7wQk8rqjaH971SqSQJAMgqYyETo4KmlF4ybf";
+    vector<int>A1 = {1,2,3,0,1,2,3,4};
+    string A = "myinterviewtrainer";
+    string B = "a**************************************************************************************";
     string C = "Q7wLgR8D8Qkk7t88KIrpqjarHKD971SqSQJTQ7aoAMgoq7eYd6yETmhoK4KmlQwWFlF4xybXfpyjPkh";
-    cout <<    isInterleave(A,B,C);
+    vector<string > s = {"mobile","samsung","sam","sung",
+        "man","mango", "icecream","and",
+        "go","i","love","ice","cream"};
+//    vector<string> r = wordBreak2("iloveicecreamandmango", s) ;
+//    for(string s: r)
+//        cout<< s <<endl;
+    vector<int> v1 = {2,4,5,6,7,8};
+    vector<int> v2 = {3, 2, 4, 1};
+    vector<int> v3 = {1, 2, 5, 10};
+    cout <<  flipArray(v1);
     return 0;
 }
