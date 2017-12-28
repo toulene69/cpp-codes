@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "272"
             endingLineNumber = "272"
-            landmarkName = "arrangeHorses(string A, int B)"
+            landmarkName = "rec_wordBreak1(int index, string &amp;s, unordered_set&lt;string&gt; &amp;dict)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
             endingLineNumber = "112"
-            landmarkName = "minCutPalindromePartitioning(string A)"
+            landmarkName = "flipArray(const vector&lt;int&gt; &amp;A)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "flipArray(const vector&lt;int&gt; &amp;A)"
+            landmarkName = "possible(int index, int sum, int sz)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "flipArray(const vector&lt;int&gt; &amp;A)"
+            landmarkName = "possible(int index, int sum, int sz)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
