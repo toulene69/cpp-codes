@@ -18,7 +18,7 @@
 #include <set>
 #include <unordered_set>
 #include <list>
-
+#include <unordered_map>
 using namespace std;
 
 struct TreeNode {
@@ -34,6 +34,17 @@ struct ListNode {
       ListNode(int x) : val(x), next(NULL) {}
 };
 
+struct UndirectedGraphNode {
+    int label;
+    vector<UndirectedGraphNode *> neighbors;
+    UndirectedGraphNode(int x) : label(x) {};
+};
+
+UndirectedGraphNode* cloneGraph(UndirectedGraphNode *node);
+vector<vector<string> > findLadders(string start, string end, vector<string> &dict);
+int wordLadderLength(string start, string end, vector<string> &dictV);
+int knight(int A, int B, int C, int D, int E, int F);
+int fibsum(int A);
 TreeNode* sortedListToBST(ListNode* A);
 int wordSearch(vector<string> &A, string B);
 vector<int> stepnum(int A, int B);
